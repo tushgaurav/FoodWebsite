@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f9f4db;
+  color: #3c3338;
+}
+
+img {
+  max-width: 100%;
+}
+
+nav {
+  background-color: #ff8a5b;
+  border-bottom: #ffc500 solid 4px;
+}
+
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 1.2rem;
+}
+
+nav img {
+  width: 5em;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.main-display {
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
+.info {
+  font-size: 0.8em;
+}
+
+.time {
+  display: flex;
+  gap: 1em;
+  flex-flow: row wrap;
+  align-items: baseline;
+  margin-bottom: 1em;
+}
+
+.time .hours {
+  background-color: #a2d729;
+  padding: 0.5em;
+  border-radius: 100px;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  background-color: #ecddd7;
+  max-width: 350px;
+  border-radius: 10px;
+}
+
+.card svg {
+  padding: 1rem 0 0 1rem;
+  fill: #3da5d9;
+  width: 1em;
+}
+
+.card h1 {
+  color: #c93a00;
+  font-size: 1em;
+  padding: 1rem 0 0 1rem;
+}
+
+.card h2 {
+  font-size: 0.9em;
+  padding: 0 0 0 1rem;
+}
+
+.card p {
+  font-size: 0.8em;
+  padding: 0 0 0 1rem;
+  max-width: 40ch;
+}
+
+@media (max-width: 800px) {
+  .card-container {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
