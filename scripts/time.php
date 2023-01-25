@@ -10,6 +10,24 @@ $date = date('d-m-y');
 $hour = date('H');
 $minute = date('i');
 
+function convert24To12($time) {
+    $array = explode("-", $time);
+    [$hourStart, $hourEnd] = $array;
+    
+    if ($hourStart > 12) {
+        $hourStart = $hourStart - 12;
+    }
+
+    if ($hourEnd > 12) {
+        $hourEnd = $hourEnd - 12;
+        $hourEnd = $hourEnd. " PM";
+    } else {
+        $hourEnd = $hourEnd . " AM";
+    }
+
+    return $hourStart . " - " . $hourEnd;
+}
+
 function convert_time($meal) {
     if ($meal == "breakfast") {
         return breakfast;
@@ -24,7 +42,6 @@ function convert_time($meal) {
     }
 }
 
-echo convert_time("breakfast");
 
 function get_meal() {
     global $hour;
@@ -43,21 +60,24 @@ function get_meal() {
     }
 }
 
-function get_meal_remaining_time($meal) {
-    $date = new DateTime('now', new DateTimeZone('Asia/Calcutta'));
-    // return $date->format("m");
-
-    switch ($meal) {
-        case "Breakfast":
-            $hours = $date->format("H") - 9;
-            $minutes = 60 - $date->format("m");
-
-            echo $hours . " hours, " . $minutes . " past";
-            break;
-
-        default:
-            return "Invalid meal type.";
+function getMealRemainingTime($meal) {
+    if (strtolower($meal) == "breakfast") {
+        $time = breakfast;
+    } elseif (strtolower($meal) == "lunch") {
+        $time = lunch;
+    } elseif (strtolower($meal) == "snacks") {
+        $time = snacks;
+    } elseif (strtolower($meal) == "dinner") {
+        $time = dinner;
+    } else {
+        return "INVALID MEAL";
     }
+
+    $date = new DateTime('now', new DateTimeZone('Asia/Calcutta'));
+    $time = new DateTime($date->format('Y-m-d') . " " . str_replace("-", ":", $time));
+    $currTime = $date->format("H-i");
+    $diff = $date->diff($time);
+    return $diff->format("%h hour %i minutes left");
 }
 
 // echo get_meal_remaining_time("Breakfast");
