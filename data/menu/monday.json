@@ -1,7 +1,8 @@
 {
   "breakfast": {
     "timing": "8:00 - 9:00 AM",
-    "food": "Aloo Parantha, Butter, Pickle, Sauce and Tea"
+    "food": "Aloo Parantha, Butter, Pickle, Sauce and Tea",
+    "description": ""
   },
   "lunch": {
     "timing": "1:00 - 2:00 PM",
