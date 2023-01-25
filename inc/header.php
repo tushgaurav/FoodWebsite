@@ -21,7 +21,7 @@ define("SITE_TITLE", "NIET Hostel Mess");
 <nav>
     <div class="container">
   <img src="images/logo.svg" alt="">
-  <h1>NIET Hostel Mess</h1>
+  <h1>test</h1>
   </div>
 </nav>
 
